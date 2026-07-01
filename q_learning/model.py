@@ -56,16 +56,32 @@ class GridWorld:
             if (r, c) not in self.walls
         ]
 
-    def randomize_traps(self):
-        # Randomly change trap positions each episode.
+    def randomize_traps(self, verbose=False):
+        """Randomly place one trap in a valid non-special cell.
+
+        The trap is not placed on walls, the initial state, the terminal
+        state, or teleporter entry cells. Teleporter destination cells are
+        still allowed, so teleporters may intentionally send the agent into
+        danger.
+        """
+        forbidden_states = (
+            set(self.walls)
+            | {self.initial_state, self.terminal_state}
+            | set(self.teleporters.keys())
+        )
+
         possible_traps = [
-            (r, c)
-            for r in range(self.grid_size[0])
-            for c in range(self.grid_size[1])
-            if (r, c) not in self.walls and (r, c) != self.terminal_state
+            (row, col)
+            for row in range(self.grid_size[0])
+            for col in range(self.grid_size[1])
+            if (row, col) not in forbidden_states
         ]
-        self.traps = {random.choice(possible_traps): -10}
-        print(f"New trap set at {list(self.traps.keys())[0]}")
+
+        trap_state = random.choice(possible_traps)
+        self.traps = {trap_state: -10}
+
+        if verbose:
+            print(f"New trap set at {trap_state}")
 
 
     def print_grid(self, agent_pos=None):
