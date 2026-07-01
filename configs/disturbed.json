@@ -1,0 +1,66 @@
+{
+  "alpha": 0.1,
+  "gamma": 0.99,
+  "epsilon": 0.1,
+  "episodes": 3000,
+  "max_steps": 15000,
+  "train_seed": 3,
+  "eval_seed": 1234,
+  "log_every": 1000,
+  "drunk_initial_state": false,
+  "eval_drunk_initial_state": true,
+  "reverse_update": true,
+  "env": {
+    "cart_mass": 1.0,
+    "pole_mass": 0.1,
+    "length": 0.5,
+    "gravity": -9.8,
+    "force": 10.0,
+    "dt": 0.02
+  },
+  "train_disturbances": {
+    "wind_bias": 0.2,
+    "wind_gust_std": 0.1,
+    "shake_amp": 0.2,
+    "shake_freq_hz": 1.0,
+    "impulse_prob": 0.0005,
+    "impulse_mag": 3.0,
+    "obs_noise": [
+      0.0,
+      0.02,
+      0.0,
+      0.02
+    ],
+    "param_jitter": 0.05
+  },
+  "eval_disturbances": {
+    "name": "hard_eval",
+    "wind_bias": 1.0,
+    "wind_gust_std": 0.8,
+    "shake_amp": 0.3,
+    "shake_freq_hz": 1.2,
+    "impulse_prob": 0.001,
+    "impulse_mag": 5.0,
+    "obs_noise": [
+      0.01,
+      0.03,
+      0.01,
+      0.04
+    ],
+    "param_jitter": 0.1
+  },
+  "evaluation": {
+    "cap_steps": 15000,
+    "epsilon": 0.0,
+    "logs": 500
+  },
+  "score": {
+    "survival": 15000,
+    "reason": "cap",
+    "train_disturbance_profile": "mild"
+  },
+  "visualization": {
+    "max_steps": 300000,
+    "plot_max_steps": 3000
+  }
+}

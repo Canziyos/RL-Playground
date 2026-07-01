@@ -1,0 +1,27 @@
+{
+  "search": {
+    "alphas": [0.1, 0.2],
+    "gammas": [0.99],
+    "epsilons": [0.1, 0.05],
+    "episodes": [1000, 3000]
+  },
+  "training": {
+    "max_steps": 10000,
+    "seed": 3,
+    "log_every": 0
+  },
+  "env": {
+    "cart_mass": 1.0,
+    "pole_mass": 0.1,
+    "length": 0.5,
+    "gravity": -9.8,
+    "force": 10.0,
+    "dt": 0.02
+  },
+  "evaluation": {
+    "cap_steps": 10000,
+    "epsilon": 0.0,
+    "logs": 0,
+    "rank_by": ["survival", "mean", "best"]
+  }
+}

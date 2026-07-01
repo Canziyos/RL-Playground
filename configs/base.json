@@ -1,0 +1,31 @@
+{
+  "alpha": 0.2,
+  "gamma": 0.99,
+  "epsilon": 0.05,
+  "episodes": 3000,
+  "max_steps": 10000,
+  "seed": 3,
+  "log_every": 1000,
+  "env": {
+    "cart_mass": 1.0,
+    "pole_mass": 0.1,
+    "length": 0.5,
+    "gravity": -9.8,
+    "force": 10.0,
+    "dt": 0.02
+  },
+  "evaluation": {
+    "cap_steps": 10000,
+    "epsilon": 0.0,
+    "logs": 500
+  },
+  "score": {
+    "best": 10000,
+    "mean": 2256.2606666666666,
+    "survival": 10000,
+    "reason": "cap"
+  },
+  "visualization": {
+    "max_steps": 300000
+  }
+}
