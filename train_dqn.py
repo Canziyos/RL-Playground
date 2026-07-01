@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 import random
 import torch
 import torch.optim as optim

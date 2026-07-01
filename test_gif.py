@@ -1,14 +1,15 @@
 import torch
-import gym
+import gymnasium as gym
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio
 from dqn_model import DQNAgent
+from gymnasium.envs.classic_control.cartpole import CartPoleEnv
 
 RENDER = True  # Set to True to render in human mode.
 MODEL_PATH = "dqn_cartpole.pth"
 #env = gym.make("CartPole-v1", render_mode="rgb_array")
-from gym.envs.classic_control.cartpole import CartPoleEnv
+
 env = CartPoleEnv()
 env.render_mode = "rgb_array" if not RENDER else "human"
 input_dim = env.observation_space.shape[0]

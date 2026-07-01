@@ -1,12 +1,12 @@
 import torch
-import gym
+import gymnasium as gym
 import numpy as np
 import imageio
 import csv
 import os
 import matplotlib.pyplot as plt
 
-# Samma arkitektur som träningen (256)
+# Same arch (256)
 from dqn_model import DQNAgent
 
 MODEL_PATH = "dqn_cartpole.pth"
